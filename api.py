@@ -49,10 +49,11 @@ def makepredic():
     prediction = model1.predict(vec.transform(jobdescription))
 
     salary = j_data['salary']
+    
     if float(salary)>=float(prediction):
-        return jsonify({'placed':'Placed',"salary":salary})
+        return jsonify({'placed':'Placed',"salary":str(salary)})
     else:
-        return jsonify({'placed':'Not Placed',"salary":prediction})
+        return jsonify({'placed':'Not Placed',"salary":str(salary)})
 if __name__ == '__main__':
     modelfile = 'salary.pickle'
     model = p.load(open(modelfile, 'rb'))
