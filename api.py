@@ -50,9 +50,9 @@ def makepredic():
 
     salary = j_data['salary']
     if float(salary)>=float(prediction):
-        return jsonify({'placed':'Placed'})
+        return jsonify({'placed':'Placed',"salary":salary})
     else:
-        return jsonify({'placed':'Not Placed'})
+        return jsonify({'placed':'Not Placed',"salary":prediction})
 if __name__ == '__main__':
     modelfile = 'salary.pickle'
     model = p.load(open(modelfile, 'rb'))
